@@ -1,0 +1,15 @@
+.nav-call-back {
+    margin-left: 20px;
+}
+.nav-call-back a {
+    margin-top: 5px;
+    padding: 10px;
+}
+.boxed-item i:before {
+    color: #00299b;
+    font-size: 25px;
+    line-height: 50px;
+    margin-left: 0;
+    transition: all 0.2s ease-in-out 0s;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+}
