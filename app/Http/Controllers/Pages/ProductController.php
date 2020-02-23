@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Partner;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -24,7 +27,11 @@ class ProductController extends Controller
         }else{
             $locale = App::getLocale();
         }
-        return view($this->viewPath.'products', compact('locale'));
+        $data['partner'] = Partner::all();
+        $data['products'] = Product::all();
+        $data['category'] = Category::all();
+
+        return view($this->viewPath.'products', compact('locale', 'data'));
     }
 
     /**

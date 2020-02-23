@@ -18,7 +18,6 @@ class CreateAutoBodiesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('photo');
-            $table->text('list_of_service');
             $table->timestamps();
         });
     }

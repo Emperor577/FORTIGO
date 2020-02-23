@@ -27,6 +27,9 @@ Route::get('/about-us', 'Pages\\AboutController@index')->name('about-us');
 Route::get('/products', 'Pages\\ProductController@index')->name('products');
 Route::get('/contact', 'Pages\\ContactController@index')->name('contact');
 
+Route::post('/call-back', 'FormController@callBack')->name('call-back');
+Route::post('/contact-form', 'FormController@contactForm')->name('contact-form');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

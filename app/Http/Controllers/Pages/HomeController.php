@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\AutoBody;
+use App\Models\AutoBodyItem;
 use App\Models\HomeSlider;
+use App\Models\Partner;
 use App\Models\Statistic;
 use App\Models\Testimonial;
 use App\Models\WhyChooseUs;
@@ -35,6 +38,21 @@ class HomeController extends Controller
         $data['about'] = AboutUs::first();
         $data['whyChoose_2'] = WhyChooseUs::all();
         $data['testimonials'] = Testimonial::take(2)->get();
+        $data['auto_body'][0] = AutoBody::first();
+        $ab_items = AutoBodyItem::all();
+        $temp = (int)(count($ab_items)/2);
+        $tempCollection1 = collect();
+        $tempCollection2 = collect();
+        for ($i = 0; $i < count($ab_items); $i ++) {
+            if ($i > $temp-1) {
+                $tempCollection2->push($ab_items[$i]);
+            } else {
+                $tempCollection1->push($ab_items[$i]);
+            }
+        }
+        $data['auto_body'][1][0] = $tempCollection1;
+        $data['auto_body'][1][1] = $tempCollection2;
+        $data['partner'] = Partner::all();
 
         return view($this->viewPath.'home', compact('locale', 'data'));
     }

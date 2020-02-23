@@ -175,92 +175,73 @@
     </div>
     <!-- End Count-Down Area -->
     @endif
+    @if($data['auto_body'][0])
     <!-- Start Auto Body Services Area -->
     <div class="content-block-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="body-service-boxed-item auto-body-bg"></div>
+                    <div class="body-service-boxed-item auto-body-bg" style="background-image: url({{ Voyager::image( $data['auto_body'][0]->photo) }});"></div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-0 col-md-8 offset-md-2">
                             <div class="section-title text-center">
-                                <h2><span>Auto Body</span> services</h2>
+                                <h2>{{ $data['auto_body'][0]->translate($locale)->title }}</h2>
                                 <div class="car-icon"><img src="assets/img/cars.png" alt="car"></div>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                                <p>{{ $data['auto_body'][0]->translate($locale)->description }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        @if($data['auto_body'][1] && count($data['auto_body'][1]) > 0)
+                        @foreach($data['auto_body'][1] as $item)
                         <div class="col-lg-4 col-md-6">
                             <div class="services-list">
                                 <ul>
-                                    <li>Aluminum Repair</li>
-                                    <li>Paintless Dent Repair</li>
-                                    <li>Auto Glass Repair</li>
-                                    <li>Auto Painting</li>
-                                    <li>Windshield Repairs</li>
-                                    <li>Auto Paint Repair</li>
+                                    @foreach($item as $value)
+                                    <li>{{ $value->translate($locale)->name }}</li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="services-list">
-                                <ul>
-                                    <li>Fender Repair</li>
-                                    <li>Hail Damage Repair</li>
-                                    <li>Towing Service</li>
-                                    <li>Wheel Alignment</li>
-                                    <li>Wheel Rim Repair</li>
-                                    <li>Collision Repair</li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
                     </div>
                     <div class="col-lg-8 text-center">
-                        <a href="#" class="btn theme-btn">request appointment</a>
+                        <a href="{{ route('products') }}" class="btn theme-btn">request appointment</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Auto Body Services Area -->
-
-    <!-- Start Our Parners Area -->
-    <div class="content-block-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                    <div class="section-title text-center">
-                        <h2><span>Our</span> Partner</h2>
-                        <div class="car-icon"><img src="{{ asset("assets/img/cars.png") }}" alt="car"></div>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+    @endif
+    @if(count($data['partner']) > 0)
+        <!-- Start Our Parners Area -->
+        <div class="content-block-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                        <div class="section-title text-center">
+                            <h2>Our Partner</h2>
+                            <div class="car-icon"><img src="{{ asset("assets/img/cars.png") }}" alt="car"></div>
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="partner-slides">
-                <div class="single-partner-slide">
-                    <a class="partners-logo" href="#"><img src="{{ asset("assets/img/partner-1.png") }}" alt="Image Description"></a>
-                </div>
-                <div class="single-partner-slide">
-                    <a class="partners-logo" href="#"><img src="{{ asset("assets/img/partner-2.png") }}" alt="Image Description"></a>
-                </div>
-                <div class="single-partner-slide">
-                    <a class="partners-logo" href="#"><img src="{{ asset("assets/img/partner-3.png") }}" alt="Image Description"></a>
-                </div>
-                <div class="single-partner-slide">
-                    <a class="partners-logo" href="#"><img src="{{ asset("assets/img/partner-4.png") }}" alt="Image Description"></a>
-                </div>
-                <div class="single-partner-slide">
-                    <a class="partners-logo" href="#"><img src="{{ asset("assets/img/partner-5.png") }}" alt="Image Description"></a>
-                </div>
-                <div class="single-partner-slide">
-                    <a class="partners-logo" href="#"><img src="{{ asset("assets/img/partner-6.png") }}" alt="Image Description"></a>
+                <div class="partner-slides">
+                    @foreach($data['partner'] as $partner)
+                    <div class="single-partner-slide">
+                        <a class="partners-logo" href="{{ $partner->link }}" target="_blank">
+                            <img src="{{ Voyager::image($partner->photo) }}" alt="Image Description">
+                        </a>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Our Parners Area -->
+        <!-- End Our Parners Area -->
+    @endif
 
 @endsection

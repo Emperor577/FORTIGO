@@ -18,5 +18,13 @@ return [
     'contact' => 'Aloqa',
     'search' => 'Qidiruv',
     'back_call' => 'Qayta qo\'g\'iroq',
+    'name' => 'Ism',
+    'phone' => 'Tel. raqam',
+    'email' => 'Email',
+    'subject' => 'Mavzu',
+    'message' => 'Xabar',
+    'send' => 'Jo\'natish',
+    'get_in_touch' => 'Biz bilan bog\'lanish',
+    'contact_info' => 'Aloqa uchun ma\'lumot'
 
 ];

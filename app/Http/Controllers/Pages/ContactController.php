@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -24,7 +25,8 @@ class ContactController extends Controller
         }else{
             $locale = App::getLocale();
         }
-        return view($this->viewPath.'contact', compact('locale'));
+        $data['contact'] = Contact::first();
+        return view($this->viewPath.'contact', compact('locale', 'data'));
     }
 
     /**

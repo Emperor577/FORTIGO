@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="{{ asset("assets/css/responsive.css") }}">
     <!-- My Custom style -->
     <link rel="stylesheet" href="{{ asset("assets/css/myCustom.css") }}">
+    <!-- modal style -->
+    <link rel="stylesheet" href="{{ asset("assets/dialog/css/component.css") }}">
+
 </head>
 
 <body>
@@ -86,7 +89,7 @@
                 </li>
 
                 <li class="nav-item nav-call-back">
-                    <a class="btn theme-btn" href="appointment-dark.html">@lang('translate.back_call')</a>
+                    <button class="btn theme-btn mt-0" id="call_back_btn" >@lang('translate.back_call')</button>
                 </li>
             </ul>
         </div>
@@ -124,12 +127,11 @@
                     <div class="footer-wid">
                         <a href="index.html" class="footer-logo"><img src="{{ asset("assets/img/logo.png") }}" alt="logo"></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#" class="link-color">Read More About Us <i class="fa  fa-long-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4">
+                        <div class="col-lg-6 col-md-6">
                             <div class="footer-wid footer-menu">
                                 <h3 class="footer-wid-title">Navigation</h3>
                                 <ul>
@@ -144,7 +146,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-4">
+                        <div class="col-lg-6 col-md-6">
                             <div class="footer-wid footer-menu">
                                 <h3 class="footer-wid-title">Hours of Operation</h3>
                                 <ul>
@@ -156,23 +158,6 @@
                                     <li><i class="fa  fa-angle-right"></i> Saturday: 7:30am - 3:00pm</li>
                                     <li><i class="fa  fa-angle-right"></i> Sunday: Closed</li>
                                 </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4">
-                            <div class="footer-wid">
-                                <h3 class="footer-wid-title">Get In Touch</h3>
-                                <p>1828 Johns Drive Glenview, IL 60025</p>
-                                <div class="address-info">
-                                    <span><i class="fa  fa-phone"></i> (224) 228-8475</span><br>
-                                    <span><i class="fa  fa-envelope"></i> support@carservice.com </span>
-                                </div>
-                                <div class="subscribe">
-                                    <form action="index.html">
-                                        <input type="text" placeholder="Type your email" required>
-                                        <button>Subscribe now <i class="fa  fa-paper-plane"></i></button>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -217,6 +202,39 @@
 <a href="#content" class="back-to-top">Top</a>
 <!-- End Back Top top -->
 
+<!-- The Modal -->
+<div id="call_back_modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Обратная связь</h2>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="{{ route('call-back') }}" >
+                {{ csrf_field() }}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>@lang('translate.name')</label>
+                            <input type="text" class="form-control" id="contact_name" name="name" autocomplete="off"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>@lang('translate.phone')</label>
+                            <input type="text" class="form-control" name="phone" id="contact_phone" autocomplete="off"/>
+                        </div>
+                    </div>
+                    <button type="submit" class="col-lg-12 btn theme-btn">@lang('translate.send')</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
 <!-- jQuery min js -->
 <script src="{{ asset("assets/js/jquery.2.1.4.min.js") }}"></script>
 <!-- Bootstrap JS file -->
@@ -251,9 +269,36 @@
 <script src="{{ asset("assets/js/parsley.min.js") }}"></script>
 <!-- jQuery Google Map JS file -->
 <script src="{{ asset("assets/js/jquery.googlemap.js") }}"></script>
-<!-- Google Map api -->
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0jIY1DdGJ7yWZrPDmhCiupu_K2En_4HY"></script>
 <!-- Custom JS file -->
 <script src="{{ asset("assets/js/active.js") }}"></script>
+<script>
+    // Get the modal
+    var modal = document.getElementById("call_back_modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("call_back_btn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "flex";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+</script>
 </body>
 </html>
