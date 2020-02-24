@@ -107,7 +107,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="footer-top-info">
-                        <span class="footer-icons"><i class="fa fa-map-o"></i></span> <p>1828 Johns Drive Glenview, IL 60025</p>
+                        <span class="footer-icons"><i class="fa fa-map-o"></i></span> <p>{{ $contact->address }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="footer-top-info">
-                        <span class="footer-icons"><i class="fa fa-headphones"></i></span> <p>Give us a free call (224) 228-8475</p>
+                        <span class="footer-icons"><i class="fa fa-headphones"></i></span> <p>@php $phone = explode(',', $contact->phone); foreach ($phone as $item) { echo $item.'</br>';  } @endphp</p>
                     </div>
                 </div>
             </div>
@@ -125,23 +125,26 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="footer-wid">
-                        <a href="index.html" class="footer-logo"><img src="{{ asset("assets/img/logo.png") }}" alt="logo"></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="{{ route('home') }}" class="footer-logo"><img src="{{ asset("assets/img/logo.png") }}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="footer-wid footer-menu">
-                                <h3 class="footer-wid-title">Navigation</h3>
+                                <h3 class="footer-wid-title">@lang('translate.menu')</h3>
                                 <ul>
-                                    <li><a href="index.html"><i class="fa  fa-angle-right"></i> home</a></li>
-                                    <li><a href="about-us.html"><i class="fa  fa-angle-right"></i> About</a></li>
-                                    <li><a href="projects.html"><i class="fa  fa-angle-right"></i> our mission</a></li>
-                                    <li><a href="industries.html"><i class="fa  fa-angle-right"></i> services</a></li>
-                                    <li><a href="gallery.html"><i class="fa  fa-angle-right"></i> gallery</a></li>
-                                    <li><a href="blog.html"><i class="fa  fa-angle-right"></i> blog</a></li>
-                                    <li><a href="contact-us.html"><i class="fa  fa-angle-right"></i> contact</a></li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{{ route('home') }}">@lang('translate.home')</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('products') }}" >@lang('translate.products')</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('contact') }}">@lang('translate.contact')</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -169,10 +172,8 @@
                     <div class="social-icos">
                         <ul class="list-inline">
                             <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a href="#"><i class="fa fa-telegram"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,7 +192,7 @@
                     </script> All Rights Reserved.
                 </div>
                 <div class="col-md-6 col-sm-7 text-right">
-                    <a href="#">Terms & Condition</a> <span class="seprator">|</span> <a href="#">Privacy Policy</a>
+                    <a href="#">Powered by</a> <span class="seprator">|</span> <a href="https://www.codestudio.uz" target="_blank">Code Studio</a>
                 </div>
             </div>
         </div>
@@ -208,7 +209,7 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <h2>Обратная связь</h2>
+            <h2>@lang('translate.back_call')</h2>
             <span class="close">&times;</span>
         </div>
         <div class="modal-body">

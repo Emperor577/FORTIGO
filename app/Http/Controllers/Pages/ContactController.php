@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\OtherPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -26,6 +27,7 @@ class ContactController extends Controller
             $locale = App::getLocale();
         }
         $data['contact'] = Contact::first();
+        $data['contact_photo'] = OtherPhoto::where('name', 'contact')->first();
         return view($this->viewPath.'contact', compact('locale', 'data'));
     }
 

@@ -25,6 +25,8 @@ return [
     'message' => 'Xabar',
     'send' => 'Jo\'natish',
     'get_in_touch' => 'Biz bilan bog\'lanish',
-    'contact_info' => 'Aloqa uchun ma\'lumot'
+    'contact_info' => 'Aloqa uchun ma\'lumot',
+    'menu' => 'Menyu',
+    'look_at' => 'Ko\'rish'
 
 ];

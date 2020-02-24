@@ -3,14 +3,14 @@
 @section('content')
 
     <!-- Start Breadcumbs Area -->
-    <div class="breadcumbs-banner-area breadcumbs-banner-bg jarallax">
+    <div class="breadcumbs-banner-area @if(empty($data['contact_photo'])) breadcumbs-banner-bg @endif jarallax" @if(!empty($data['contact_photo']))  style="background-image: url({{ Voyager::image($data['contact_photo']->photo) }})" @endif>
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <h2>Contact us</h2>
-                            <span><a href="index.html">home</a> / Contact us</span>
+                            <h2>@lang('translate.contact')</h2>
+                            <span><a href="{{ route('home') }}">@lang('translate.home')</a> / @lang('translate.contact')</span>
                         </div>
                     </div>
                 </div>

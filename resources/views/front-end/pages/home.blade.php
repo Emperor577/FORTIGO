@@ -159,7 +159,7 @@
     @endif
     @if(count($data['statistics']) > 0)
     <!-- Start Count-Down Area -->
-    <div class="count-down-area count-bg jarallax">
+    <div class="count-down-area @if(empty($data['statistics_photo'])) count-bg @endif jarallax" @if(!empty($data['statistics_photo'])) style="background-image: url({{ Voyager::image($data['statistics_photo']->photo) }})" @endif>
         <div class="container">
             <div class="row">
                 @foreach($data['statistics'] as $statistic)
@@ -209,7 +209,7 @@
                         @endif
                     </div>
                     <div class="col-lg-8 text-center">
-                        <a href="{{ route('products') }}" class="btn theme-btn">request appointment</a>
+                        <a href="{{ route('products') }}" class="btn theme-btn">@lang('translate.look_at')</a>
                     </div>
                 </div>
             </div>

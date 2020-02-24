@@ -7,6 +7,7 @@ use App\Models\AboutUs;
 use App\Models\AutoBody;
 use App\Models\AutoBodyItem;
 use App\Models\HomeSlider;
+use App\Models\OtherPhoto;
 use App\Models\Partner;
 use App\Models\Statistic;
 use App\Models\Testimonial;
@@ -53,6 +54,7 @@ class HomeController extends Controller
         $data['auto_body'][1][0] = $tempCollection1;
         $data['auto_body'][1][1] = $tempCollection2;
         $data['partner'] = Partner::all();
+        $data['statistics_photo'] = OtherPhoto::where('name', 'statistics')->first();
 
         return view($this->viewPath.'home', compact('locale', 'data'));
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\OtherPhoto;
 use App\Models\Partner;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class ProductController extends Controller
         $data['partner'] = Partner::all();
         $data['products'] = Product::all();
         $data['category'] = Category::all();
+        $data['product_photo'] = OtherPhoto::where('name', 'product')->first();
 
         return view($this->viewPath.'products', compact('locale', 'data'));
     }
