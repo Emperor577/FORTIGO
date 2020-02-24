@@ -65,9 +65,10 @@
     <div class="content-block-area">
         <div class="container">
             <div class="section-title text-center">
-                <h2>{{ $data['about']->translate($locale)->title }}</h2>
+                <h2>@if(!empty($data['about'])){{ $data['about']->translate($locale)->title }}@else About us @endif</h2>
                 <div class="car-icon"><img src="{{ asset("assets/img/cars.png") }}" alt="car"></div>
             </div>
+            @if(!empty($data['about']))
             <div class="row">
                 <div class="col-lg-5">
                     <div class="banner-man-boxed" style="background-image: url({{ Voyager::image($data['about']->photo ) }})"></div>
@@ -78,6 +79,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
     <!-- End Top Banner Area -->
