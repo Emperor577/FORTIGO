@@ -70,15 +70,15 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item @if(Route::currentRouteName() === 'home') active @endif">
                     <a class="nav-link" href="{{ route('home') }}">@lang('translate.home')</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() === 'products') active @endif">
                     <a class="nav-link" href="{{ route('products') }}" >@lang('translate.products')</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item @if(Route::currentRouteName() === 'contact') active @endif">
                     <a class="nav-link" href="{{ route('contact') }}">@lang('translate.contact')</a>
                 </li>
 
