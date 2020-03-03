@@ -22,7 +22,7 @@ class Messages extends BaseDimmer
      */
     public function run()
     {
-        $count = \App\Models\Message::count();
+        $count = \App\Models\Message::where('is_seen', 0)->count();
         $string = 'Сообщения';
 
         return view('voyager::dimmer', array_merge($this->config, [
@@ -31,7 +31,7 @@ class Messages extends BaseDimmer
             'text'   => 'У вас есть '. $count .' новых сообщения',
             'button' => [
                 'text' => 'Все сообщения',
-                'link' => route('voyager.users.index'),
+                'link' => route('message.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));

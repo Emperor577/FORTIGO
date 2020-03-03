@@ -31,6 +31,12 @@ Route::post('/call-back', 'FormController@callBack')->name('call-back');
 Route::post('/contact-form', 'FormController@contactForm')->name('contact-form');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'dashboard'], function () {
     Voyager::routes();
+
+    //Message route
+
+    Route::get('/message', 'Admin\\MessageController@index')->name('message.index');
+    Route::get('/message/view/{id}', 'Admin\\MessageController@view')->name('message.view');
+    Route::delete('/message/delete/{id}', 'Admin\\MessageController@destroy')->name('message.delete');
 });
