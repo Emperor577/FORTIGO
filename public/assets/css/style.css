@@ -741,7 +741,11 @@ img {
     width: 700px;
   }
 }
-
+@media only screen and (min-width: 2400px) {
+    .auto-navbar::before {
+        width: 1060px;
+    }
+}
 .auto-dark-navbar {
   position: absolute;
   top: 0;
