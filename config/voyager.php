@@ -191,7 +191,7 @@ return [
     ],
 
     'additional_js' => [
-        //'',
+        'admin/TinyMCE/js/config.js',
     ],
 
     'googlemaps' => [

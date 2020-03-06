@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AutoServicing - Auto Service & Workshop HTML5 Website Template</title>
+    <title>{{ setting('site.title') }}</title>
 
     <!-- Favicon -->
     <link rel="icon" sizes="16x16" href="{{ asset("assets/img/favicon-icon.png") }}">
@@ -62,7 +62,7 @@
 <nav class="navbar navbar-expand-lg navbar-light auto-navbar header-sticky">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">
-            <img src="{{ asset("assets/img/logo.png") }}" alt="Logo">
+            <img src="{{ Voyager::image(setting('site.logo')) }}" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -135,7 +135,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="footer-wid">
-                        <a href="{{ route('home') }}" class="footer-logo"><img src="{{ asset("assets/img/logo.png") }}" alt="logo"></a>
+                        <a href="{{ route('home') }}" class="footer-logo"><img src="{{ Voyager::image(setting('site.logo')) }}" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
