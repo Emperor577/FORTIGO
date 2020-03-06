@@ -17,7 +17,7 @@
     <title>{{ setting('site.title') }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" sizes="16x16" href="{{ asset("assets/img/favicon-icon.png") }}">
+    <link rel="icon" sizes="16x16" href="{{ asset("assets/img/favicon.png") }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset("assets/css/bootstrap.min.css") }}">
     <!-- Font-awesome CSS -->
