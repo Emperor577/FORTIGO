@@ -115,17 +115,12 @@
     <div class="footer-top-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="footer-top-info">
-                        <span class="footer-icons"><i class="fa fa-map-o"></i></span> <p>{{ $contact->address }}</p>
+                        <span class="footer-icons"><i class="fa fa-map-o"></i></span> <p>@php $address = explode(',', $contact->address); foreach ($address as $item) { echo $item.'</br>'; } @endphp</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="footer-top-info">
-                        <span class="footer-icons"><i class="flaticon-crane"></i></span> <p>Working Days Monday to Friday</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="footer-top-info">
                         <span class="footer-icons"><i class="fa fa-headphones"></i></span> <p>@php $phone = explode(',', $contact->phone); foreach ($phone as $item) { echo $item.'</br>';  } @endphp</p>
                     </div>
@@ -182,8 +177,8 @@
                     <div class="social-icos">
                         <ul class="list-inline">
                             <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-telegram"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://t.me/Fortigouz"><i class="fa fa-telegram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/fortigouz/"><i class="fa fa-instagram"></i></a></li>
                         </ul>
                     </div>
                 </div>

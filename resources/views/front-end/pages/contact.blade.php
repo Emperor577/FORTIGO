@@ -23,18 +23,21 @@
         <div class="container">
             <h2 class="area-title">@lang('translate.contact_info')</h2>
             <div class="row">
-                <div class="col-md-6 col-lg-4">
+                <div class="contact-items col-md-6 col-lg-4">
                     <div class="media">
                         <div class="media-left">
                             <i class="ion-ios-location-outline"></i>
                         </div>
                         <div class="media-body">
-                            <h4>{{ $data['contact']->address }}</h4>
+                            <h4>@php $address = explode(',', $data['contact']->address); foreach ($address as $item) {
+                                    echo $item.'</br>';
+                                } @endphp
+                            </h4>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="contact-items col-md-6 col-lg-4">
                     <div class="media">
                         <div class="media-left">
                             <i class="ion-ios-telephone-outline"></i>
@@ -47,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="contact-items col-md-6 col-lg-4">
                     <div class="media">
                         <div class="media-left">
                             <i class="ion-ios-email-outline"></i>

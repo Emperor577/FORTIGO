@@ -37,7 +37,7 @@ class HomeController extends Controller
         $data['sliders'] = HomeSlider::all();
         $data['statistics'] = Statistic::all();
         $data['about'] = AboutUs::first();
-        $data['whyChoose_2'] = WhyChooseUs::all();
+        $data['whyChoose_2'] = WhyChooseUs::orderBy('order', 'ASC')->get();
         $data['testimonials'] = Testimonial::take(2)->get();
         $data['auto_body'][0] = AutoBody::first();
         $ab_items = AutoBodyItem::all();

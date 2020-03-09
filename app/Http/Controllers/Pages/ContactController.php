@@ -27,6 +27,7 @@ class ContactController extends Controller
             $locale = App::getLocale();
         }
         $data['contact'] = Contact::first();
+//        dd($data['contact']);
         $data['contact_photo'] = OtherPhoto::where('name', 'contact')->first();
         return view($this->viewPath.'contact', compact('locale', 'data'));
     }

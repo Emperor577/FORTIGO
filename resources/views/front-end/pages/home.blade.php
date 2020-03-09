@@ -101,7 +101,7 @@
                 @foreach($data['whyChoose_2'] as $item)
                 <div class="col-lg-3 col-md-6">
                     <div class="boxed-item">
-                        <span class="sirial-number">@if($item->id < 10)0{{ $item->id }}@else{{ $item->id }}@endif</span>
+                        <span class="sirial-number">@if($item->order < 10)0{{ $item->order }}@else{{ $item->order }}@endif</span>
                         <span class="single-boxed"><i class="{{ $item->icon }}"></i></span>
                         <h3>{{ $item->translate($locale)->title }}</h3>
                         {!! $item->translate($locale)->description !!}
